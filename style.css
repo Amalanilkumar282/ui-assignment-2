@@ -22,6 +22,7 @@
     clip-path: polygon(0 0, 100% 0, 0 100%); /* right triangle */
     z-index: 0;          
     pointer-events: none;
+    
 }
 
 /* LEFT panel (light) */
@@ -39,6 +40,7 @@
              clamp(10px, 2vw, 20px)
              clamp(16px, 3vw, 32px);
     color: #142038;
+    border-bottom: rgb(223, 145, 0) solid 10px;
 }
 
 /* RIGHT panel (dark wedge) */
