@@ -1,0 +1,83 @@
+.header{
+    position: relative;
+    width: 100%;
+    /* keep a single source of truth for the right wedge width */
+    --right-wedge: 32%;
+    min-height: clamp(130px, 16vw, 220px);
+    overflow: hidden;
+    background: transparent;
+    color: inherit;
+}
+
+/* decorative triangle (behind both panels) */
+.header::after{
+    content: "";
+    position: absolute;
+    /* align its right edge to the left edge of the right wedge */
+    right: calc(var(--right-wedge) - 4px); /* -1px avoids a tiny antialias gap */
+    bottom: 0;
+    width: clamp(60px, 8vw, 140px);
+    height: clamp(24px, 4vw, 60px);
+    background: #02022b; /* same color as the right wedge */
+    clip-path: polygon(0 0, 100% 0, 0 100%); /* right triangle */
+    z-index: 0;          
+    pointer-events: none;
+}
+
+/* LEFT panel (light) */
+.header-bg-left{
+    position: absolute;
+    inset: 0 auto 3em 0;        
+    width: 80%;
+    background: #ffc198;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: clamp(10px, 2vw, 20px)
+             clamp(28px, 6vw, 72px)
+             clamp(10px, 2vw, 20px)
+             clamp(16px, 3vw, 32px);
+    color: #142038;
+}
+
+/* RIGHT panel (dark wedge) */
+.header-bg-right{
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: var(--right-wedge);   /* uses the same variable */
+    background: #03033f;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    padding: clamp(10px, 2vw, 20px)
+             clamp(16px, 3vw, 32px)
+             clamp(10px, 2vw, 20px)
+             clamp(28px, 6vw, 72px);
+    color: #fff;
+}
+
+/* Typography similar to the reference */
+.header h1, .header h2{
+    margin: 0;
+    line-height: 1.1;
+}
+.header h1{
+    font-weight: 800;
+    font-size: clamp(18px, 3.6vw, 38px);
+}
+.header h2{
+    font-weight: 700;
+    letter-spacing: .2px;
+    font-size: clamp(14px, 2.6vw, 22px);
+}
+
+/* tighten on small screens so text still fits inside the wedges */
+@media (max-width: 520px){
+    .header-bg-left{ width: 72%; }
+    .header-bg-right{ width: 54%; }
+    .header{ min-height: 180px; }
+}
