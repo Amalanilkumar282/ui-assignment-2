@@ -127,11 +127,11 @@ body {
     display: grid;
     min-height: calc(100vh - 260px); /* Adjusted for new header height */
     width: 100%;
-    margin: 2rem 0 0 0; /* Reduced top margin */
-    padding: 0 5px 5px 5px; /* Minimal padding */
+    margin: 1.5rem 0 0 0; /* Slightly reduced top margin */
+    padding: 0 8px 8px 8px; /* Reduced padding */
     grid-template-columns: 1fr 1fr; /* 2 equal columns */
-    grid-template-rows: minmax(auto, max-content) 1fr 1fr auto; /* First row equal heights with content, middle rows equal, last row auto */
-    gap: 10px; /* Reduced gap */
+    grid-template-rows: minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content) minmax(auto, max-content) auto; /* Equal heights per row */
+    gap: 8px; /* Reduced gap */
 }
 
 /* Remove gap specifically before the last row */
@@ -142,7 +142,7 @@ body {
 /* Ensure Team Management is absolutely the last element */
 .single-cell-row {
     grid-column: 1 / -1; /* Spans all columns */
-    grid-row: 4; /* Explicitly fourth/last row */
+    grid-row: 5; /* Now fifth row after the split */
     background-color: #f0f0f0; /* Light background for visibility */
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -176,24 +176,40 @@ body {
     grid-row: 2;
 }
 
-/* Row 3: Left column container and Revenue Projects */
+/* Row 3: Split left column - Growth Strategies and Future Accomplishments as separate boxes */
 .item5 {
-    grid-column: 1; /* First column - will contain both Growth Strategies and Future Accomplishments */
-    grid-row: 3;
+    grid-column: 1; /* First column */
+    grid-row: 3; /* Third row - Growth Strategies */
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Reduced gap */
+    gap: 2px; /* Minimal gap */
+    height: fit-content; /* Use content height */
+    align-self: start; /* Align to start */
+}
+
+/* New item for Future Accomplishments */
+.item5-future {
+    grid-column: 1; /* First column */
+    grid-row: 4; /* Fourth row - Future Accomplishments */
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Minimal gap */
+    height: fit-content; /* Use content height */
+    align-self: start; /* Align to start */
 }
 
 .item6 {
     grid-column: 2; /* Second column */
-    grid-row: 3;
+    grid-row: 3 / 5; /* Span rows 3 and 4 to maintain layout */
+    height: fit-content; /* Use content height */
+    align-self: start; /* Align to start */
 }
 
 h2 {
-    padding: 2px 5px; /* Minimal padding */
+    padding: 3px 6px; /* Reduced padding */
     margin: 0;
     color: rgb(0, 0, 71);
+    line-height: 1.2; /* Tighter line height */
 }
 
 .item {
@@ -201,8 +217,20 @@ h2 {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 8px;
-    height: 100%; /* Use full available height */
+    height: 100%; /* Use full available height for equal heights in rows */
     width: 100%; /* Use full available width */
+    align-self: stretch; /* Stretch to match row height */
+}
+
+/* Apply same styling to the new future accomplishments item */
+.item5-future {
+    display: flex;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    height: 100%; /* Use full height for equal heights */
+    width: 100%;
+    align-self: stretch; /* Stretch to match row height */
 }
 
 /* Override height for first row items to have equal heights */
@@ -222,6 +250,23 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align content to start instead of center */
+}
+
+/* Include the new future accomplishments item */
+.item5-future > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Specific overrides for third row items to minimize empty space */
+.item5 > *, .item5-future > *, .item6 > * {
+    flex: 0 1 auto; /* Don't force expansion, allow natural sizing */
+    justify-content: flex-start;
+    min-height: 0; /* Remove minimum height constraints */
+    margin: 0; /* Remove margins */
+    padding: 0; /* Remove padding */
 }
 
 /* Specific overrides for first row items to prevent excessive spacing */
@@ -247,9 +292,9 @@ h2 {
     position: relative;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    margin-right: 8px; /* Further reduced margin */
-    margin-top: 2px; /* Minimal top margin */
-    margin-bottom: 2px; /* Minimal bottom margin */
+    margin-right: 6px; /* Further reduced margin */
+    margin-top: 1px; /* Minimal top margin */
+    margin-bottom: 3px; /* Small bottom margin */
 }
 
 .small-line {
@@ -267,8 +312,9 @@ h2 {
 }
 
 .paragraph, .paragraph2{
-    margin: 2px 0px; /* Minimal margin */
-    padding-left: 3px; /* Minimal padding */
+    margin: 4px 0px; /* Slightly increased for readability */
+    padding-left: 6px; /* Slightly increased padding */
+    line-height: 1.3; /* Better line spacing */
 }
 .conic-graph {
     /* Styles for the conic graph */
@@ -539,11 +585,13 @@ h2 {
 
 /* New sections styling */
 .growth-strategies, .revenue-projects, .future-accomplishments {
-    padding: 3px; /* Minimal padding */
-    height: 100%;
+    padding: 5px; /* Balanced padding for content */
+    height: 100%; /* Use full height */
     display: flex;
     flex-direction: column;
     flex: 1; /* Expand to fill available space */
+    margin: 0; /* Remove margin */
+    justify-content: space-between; /* Distribute content evenly */
 }
 
 /* Ensure all content containers expand fully */
@@ -551,8 +599,8 @@ h2 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from center to flex-start */
-    padding: 0; /* Remove all padding */
+    justify-content: space-between; /* Distribute content evenly */
+    padding: 3px; /* Small padding for content */
     margin: 0; /* Remove all margin */
 }
 
@@ -571,15 +619,15 @@ h2 {
 
 .strategy-content ul, .accomplishments-content ul {
     list-style-type: disc;
-    padding-left: 10px; /* Further reduced padding */
-    margin: 2px 0; /* Minimal margin */
+    padding-left: 15px; /* Adequate padding for bullets */
+    margin: 5px 0; /* Better spacing */
     flex: 1;
 }
 
 .strategy-content li, .accomplishments-content li {
-    margin-bottom: 5px; /* Reduced margin */
+    margin-bottom: 4px; /* Better spacing between items */
     font-size: 14px;
-    line-height: 1.3; /* Reduced line height */
+    line-height: 1.3; /* Better readability */
 }
 
 /* Revenue chart styling */
@@ -588,7 +636,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px; /* Minimal padding */
+    padding: 8px; /* Better padding for content */
 }
 
 .revenue-bar-container {
