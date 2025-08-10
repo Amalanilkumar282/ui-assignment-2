@@ -25,7 +25,7 @@ body {
 
     min-height: clamp(130px, 16vw, 220px);
     padding-bottom: var(--left-gap);                /* reserve space so intro doesn't overlap next section */
-    overflow: hidden;
+    overflow: visible;
     background: transparent;
     color: inherit;
 }
@@ -101,23 +101,19 @@ body {
 .header h1{ font-weight: 800; font-size: clamp(18px, 3.6vw, 38px); }
 .header h2{ font-weight: 700; letter-spacing: .2px; font-size: clamp(14px, 2.6vw, 22px); }
 
-/* INTRO inside the gap under the orange border */
+/* INTRO sticking to the header */
 .header .intro-note{
     position: absolute;
-    /* put the top of the paragraph at the top of the gap (just below the orange border) */
-    top: calc(100% - var(--left-gap) + 4px);        /* +4px = breathing room */
+    /* position it just below the header */
+    top: calc(100% - 4em);
     left: var(--left-pad-x);
     /* keep clear of the right wedge + triangle */
     right: calc(var(--right-wedge) + var(--right-tri-w) + 24px);
-    z-index: 4;                                     /* above background shapes */
+    z-index: 10;                                    /* high z-index to ensure visibility */
     font-size: clamp(12px, 1.4vw, 14px);
     line-height: 1.5;
-    color: #5b6b7b;
-    background: #f5f7fb;
-    border-top: 1px solid #e6eaf2;
-    border-bottom: 1px solid #e6eaf2;
-    padding: 0.55em 0.9rem;
-    border-radius: 2px;
+    color: #2c3e50;
+    max-width: 800px;
 }
 
 /* Optional: narrow screens */
@@ -131,7 +127,7 @@ body {
     display: grid;
     min-height: calc(100vh - 260px); /* Adjusted for new header height */
     width: calc(100% - 40px);
-    margin: 1rem 20px 20px 20px; /* Added top margin for spacing from header */
+    margin: 5rem 20px 20px 20px; /* Increased top margin for intro text space */
     padding-bottom: 0;
     grid-template-columns: 1fr 1fr; /* 2 equal columns */
     grid-template-rows: 1fr 1fr 1fr auto; /* 3 content rows + auto height for team row */
