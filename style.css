@@ -215,6 +215,11 @@ h2 {
     flex-direction: column;
 }
 
+/* Exception for the graph-and-text-container to maintain horizontal layout */
+.graph-and-text-container {
+    flex-direction: row !important; /* Override parent column direction */
+}
+
 .item.item4 {
     display: flex;
     flex-direction: column; /* Ensures vertical stacking of children */
@@ -252,6 +257,7 @@ h2 {
     width: 180px; /* Reduced size */
     height: 180px; /* Reduced size */
     margin-left: 10px; /* Reduced margin */
+    flex-shrink: 0; /* Prevent shrinking */
     background: conic-gradient(
         darkblue 0% 25%, 
         rgb(49, 46, 221) 25% 50%, 
@@ -273,10 +279,14 @@ h2 {
     transform: translate(-50%, -50%);
 }
 .graph-and-text-container{
-    display: flex;
-    /* align-items: center; */
-    gap: 20px; /* Reduced gap */
+    display: flex !important;
+    flex-direction: row !important; /* Force horizontal layout */
+    align-items: flex-start !important; /* Align to top */
+    justify-content: flex-start !important; /* Start alignment */
+    gap: 30px; /* Increased gap for better separation */
     margin: 0px 15px; /* Reduced margin */
+    width: 100%; /* Ensure full width usage */
+    flex-wrap: nowrap !important; /* Prevent wrapping */
 }
 
 .segments{
@@ -316,21 +326,39 @@ h2 {
     top: 25%;
 }
 .services-text-container{
-    display: flex;
-    flex-direction: column; 
+    display: flex !important;
+    flex-direction: column !important; 
+    justify-content: flex-start !important; /* Align to top */
+    flex: 1 !important; /* Take remaining space */
+    min-width: 200px !important; /* Minimum width to ensure space */
+    height: auto !important; /* Auto height */
 }
 .leg{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    align-items: center !important;
+    width: 100% !important; /* Ensure full width usage */
+    white-space: nowrap !important; /* Prevent text wrapping */
+    margin: 2px 0 !important; /* Small vertical spacing */
 }
+.text-graph-heading {
+    margin-bottom: 10px;
+}
+
+.text-graph-heading h2 {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 18px;
+}
+
 .legend-donut-graph {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 6px; /* Reduced gap */
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* Align to start instead of center */
+    align-items: flex-start !important; /* Align to start for better text alignment */
+    gap: 8px !important; /* Gap between legend items */
+    width: 100% !important;
 }
 .bullet-colored{
     width: 15px;
