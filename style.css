@@ -130,7 +130,7 @@ body {
     margin: 2rem 0 0 0; /* Reduced top margin */
     padding: 0 5px 5px 5px; /* Minimal padding */
     grid-template-columns: 1fr 1fr; /* 2 equal columns */
-    grid-template-rows: auto 1fr 1fr auto; /* First row auto height, middle rows equal, last row auto */
+    grid-template-rows: minmax(auto, max-content) 1fr 1fr auto; /* First row equal heights with content, middle rows equal, last row auto */
     gap: 10px; /* Reduced gap */
 }
 
@@ -205,16 +205,16 @@ h2 {
     width: 100%; /* Use full available width */
 }
 
-/* Override height for first row items to prevent bottom empty space */
+/* Override height for first row items to have equal heights */
 .item1, .item2 {
-    height: fit-content; /* Use content height instead of full height */
-    align-self: start; /* Align to start of grid cell */
+    height: 100%; /* Use full height to match each other */
+    align-self: stretch; /* Stretch to fill grid cell height */
 }
 
 .item1, .item2{
     flex-direction: column;
-    height: fit-content; /* Use content height instead of full height */
-    align-self: start; /* Align to start of grid cell */
+    height: 100%; /* Use full height to match each other */
+    align-self: stretch; /* Stretch to fill grid cell height */
 }
 
 .item1 > *, .item2 > *, .item3 > *, .item4 > *, .item5 > *, .item6 > * {
