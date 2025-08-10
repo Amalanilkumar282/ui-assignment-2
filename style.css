@@ -101,8 +101,8 @@ body {
     width: calc(100% - 40px);
     margin: 20px;
     padding-bottom: 20px;
-    grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-    grid-template-rows: repeat(3, 1fr) auto; /* Adds an additional row with auto height */
+    grid-template-columns: 1fr 2fr; /* 1 narrow column, 1 wider column */
+    grid-template-rows: 1fr 1fr 0.5fr 0.5fr auto; /* 4 rows plus auto for team section */
     gap: 20px;
 }
 
@@ -110,6 +110,45 @@ body {
     grid-column: 1 / -1; /* Spans all columns */
     background-color: lightgray; /* Optional: Background color for visibility */
     text-align: center; /* Optional: Centers text */
+}
+
+/* Grid positioning for the corrected layout */
+/* Row 1: Company Brief and Service Offerings */
+.item1 {
+    grid-column: 1; /* First column */
+    grid-row: 1;
+}
+
+.item2 {
+    grid-column: 2; /* Second column */
+    grid-row: 1;
+}
+
+/* Row 2: Financial Review and Key Achievements */
+.item3 {
+    grid-column: 1; /* First column */
+    grid-row: 2;
+}
+
+.item4 {
+    grid-column: 2; /* Second column */
+    grid-row: 2;
+}
+
+/* Row 3-4: Left stacked (Growth Strategies + Future Accomplishments) and Right (Revenue Projects) */
+.item5 {
+    grid-column: 1; /* First column, row 3 */
+    grid-row: 3;
+}
+
+.item7 {
+    grid-column: 1; /* First column, row 4 */
+    grid-row: 4;
+}
+
+.item6 {
+    grid-column: 2; /* Second column, spans rows 3-4 */
+    grid-row: 3 / 5;
 }
 
 h2 {
@@ -407,6 +446,81 @@ h2 {
 .item3 {
     display: flex;
     flex-direction: column;
+}
+
+/* New sections styling */
+.growth-strategies, .revenue-projects, .future-accomplishments {
+    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.strategy-content ul, .accomplishments-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+    flex: 1;
+}
+
+.strategy-content li, .accomplishments-content li {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* Revenue chart styling */
+.revenue-chart {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.revenue-bar-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.revenue-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.revenue-bar-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.revenue-bar {
+    width: 15px;
+    margin: 0 2px;
+    border-radius: 2px 2px 0 0;
+}
+
+.blue-revenue {
+    background-color: #1e3a8a;
+}
+
+.orange-revenue {
+    background-color: #f97316;
+}
+
+.light-blue-revenue {
+    background-color: #60a5fa;
+}
+
+.quarter-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 8px;
 }
 
 .donut-graphs-container {
