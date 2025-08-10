@@ -248,8 +248,8 @@ h2 {
 }
 
 .paragraph, .paragraph2{
-    margin: 5px 0px; /* Minimal margin */
-    padding-left: 5px; /* Minimal padding */
+    margin: 2px 0px; /* Minimal margin */
+    padding-left: 3px; /* Minimal padding */
 }
 .conic-graph {
     /* Styles for the conic graph */
@@ -533,12 +533,25 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0; /* Remove all padding */
+    margin: 0; /* Remove all margin */
+}
+
+/* Specific styles for first row containers */
+.service-offerings-heading, .message-from-CM {
+    padding: 0; /* Remove all padding */
+    margin: 0; /* Remove all margin */
+}
+
+.para-brief, .para-message-from-cm {
+    padding: 0; /* Ensure no padding */
+    margin: 0; /* Ensure no margin */
 }
 
 .strategy-content ul, .accomplishments-content ul {
     list-style-type: disc;
-    padding-left: 15px; /* Reduced padding */
-    margin: 5px 0; /* Reduced margin */
+    padding-left: 10px; /* Further reduced padding */
+    margin: 2px 0; /* Minimal margin */
     flex: 1;
 }
 
