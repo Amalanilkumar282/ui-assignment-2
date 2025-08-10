@@ -126,9 +126,9 @@ body {
 .main-body {
     display: grid;
     min-height: calc(100vh - 260px); /* Adjusted for new header height */
-    width: calc(100% - 40px);
-    margin: 5rem 20px 20px 20px; /* Increased top margin for intro text space */
-    padding-bottom: 0;
+    width: 100%;
+    margin: 5rem 0 0 0; /* Remove horizontal margins to use full width */
+    padding: 0 20px 20px 20px; /* Use padding instead of margin for horizontal spacing */
     grid-template-columns: 1fr 1fr; /* 2 equal columns */
     grid-template-rows: 1fr 1fr 1fr auto; /* 3 content rows + auto height for team row */
     gap: 20px; /* Standard gap for all elements */
@@ -176,10 +176,13 @@ body {
     grid-row: 2;
 }
 
-/* Row 3: Growth Strategies, Revenue Projects */
+/* Row 3: Left column container and Revenue Projects */
 .item5 {
-    grid-column: 1; /* First column */
+    grid-column: 1; /* First column - will contain both Growth Strategies and Future Accomplishments */
     grid-row: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Same gap as grid */
 }
 
 .item6 {
@@ -195,17 +198,20 @@ h2 {
 
 .item {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     background-color: #f0f0f0;
-    /* Light background for visibility */
     border: 1px solid #ccc;
-    /* Optional: Adds a border for clarity */
     border-radius: 8px;
-    /* Optional: Adds rounded corners */
+    height: 100%; /* Use full available height */
+    width: 100%; /* Use full available width */
 }
 
 .item1, .item2{
+    flex-direction: column;
+}
+
+.item1 > *, .item2 > *, .item3 > *, .item4 > *, .item5 > *, .item6 > * {
+    flex: 1; /* Make all direct children expand to fill available space */
+    display: flex;
     flex-direction: column;
 }
 
@@ -490,6 +496,15 @@ h2 {
     height: 100%;
     display: flex;
     flex-direction: column;
+    flex: 1; /* Expand to fill available space */
+}
+
+/* Ensure all content containers expand fully */
+.para-brief, .para-message-from-cm, .graph-and-text-container, .donut-graphs-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .strategy-content ul, .accomplishments-content ul {
