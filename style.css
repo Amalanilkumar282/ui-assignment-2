@@ -213,6 +213,13 @@ h2 {
     flex: 1; /* Make all direct children expand to fill available space */
     display: flex;
     flex-direction: column;
+    justify-content: flex-start; /* Align content to start instead of center */
+}
+
+/* Specific overrides for first row items to prevent excessive spacing */
+.item1 > *, .item2 > * {
+    flex: 0 1 auto; /* Don't force expansion, allow natural sizing */
+    justify-content: flex-start;
 }
 
 /* Exception for the graph-and-text-container to maintain horizontal layout */
@@ -230,7 +237,9 @@ h2 {
     position: relative;
     display: grid;
     grid-template-columns: 3fr 1fr;
-    margin-right: 15px; /* Reduced margin */
+    margin-right: 8px; /* Further reduced margin */
+    margin-top: 2px; /* Minimal top margin */
+    margin-bottom: 2px; /* Minimal bottom margin */
 }
 
 .small-line {
@@ -532,7 +541,7 @@ h2 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center to flex-start */
     padding: 0; /* Remove all padding */
     margin: 0; /* Remove all margin */
 }
@@ -541,11 +550,13 @@ h2 {
 .service-offerings-heading, .message-from-CM {
     padding: 0; /* Remove all padding */
     margin: 0; /* Remove all margin */
+    flex: 0 1 auto; /* Don't expand, use natural size */
 }
 
 .para-brief, .para-message-from-cm {
     padding: 0; /* Ensure no padding */
     margin: 0; /* Ensure no margin */
+    flex: 0 1 auto; /* Don't expand, use natural size */
 }
 
 .strategy-content ul, .accomplishments-content ul {
