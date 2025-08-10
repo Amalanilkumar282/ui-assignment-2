@@ -1184,12 +1184,13 @@ h2 {
     border-radius: 0; /* Square frame instead of circular */
     display: block;
     flex-shrink: 0; /* Prevent image from shrinking */
+    border: 2px solid #000; /* Black border around all images */
 }
 
 .name {
     font-size: 14px; /* Smaller font to fit better */
     font-weight: bold;
-    color: rgb(0, 0, 71);
+    color: #000; /* Changed to black */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for long names */
@@ -1197,7 +1198,7 @@ h2 {
 
 .designation {
     font-size: 12px; /* Smaller font */
-    color: gray;
+    color: #000; /* Changed to black */
     white-space: nowrap; /* Prevent text wrapping */
     overflow: hidden;
     text-overflow: ellipsis; /* Add ellipsis for long designations */
