@@ -607,6 +607,258 @@ h2 {
     text-align: left;
 }
 
+/* New Financial Chart Styles - Exact Replica with Groups */
+.financial-chart-grouped {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    flex: 1;
+    gap: 25px;
+    background-color: #f5f1eb; /* Light beige background matching the image */
+}
+
+.chart-group-new {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+    flex: 1;
+}
+
+.year-bracket-section-new {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.group-bracket-new {
+    width: 20px;
+    height: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.group-bracket-new .bracket-line-new {
+    width: 18px;
+    height: 2px;
+    background-color: #333;
+}
+
+.group-bracket-new .bracket-line-new.top {
+    align-self: flex-start;
+}
+
+.group-bracket-new .bracket-line-new.bottom {
+    align-self: flex-start;
+}
+
+.group-bracket-new .bracket-curve-new {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 60px;
+    border-left: 2px solid #333;
+    border-radius: 12px 0 0 12px;
+}
+
+.year-label-vertical {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    white-space: nowrap;
+    width: 25px;
+    text-align: center;
+    transform: rotate(180deg);
+}
+
+.bars-group-new {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bar-row-new {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.bar-new {
+    height: 24px;
+    transition: width 0.3s ease;
+    position: relative;
+    border-radius: 2px;
+    flex: 1;
+    max-width: 200px;
+}
+
+/* Financial Chart - Exact Replica from Image */
+.financial-chart-final {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f5f1eb;
+    height: 100%;
+    flex: 1;
+}
+
+.vertical-labels-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 80px;
+    align-items: flex-end;
+    padding-right: 10px;
+}
+
+.vertical-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.chart-groups-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+    gap: 15px;
+}
+
+.chart-group-final {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+}
+
+.year-bracket-final {
+    width: 20px;
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bracket-line-final {
+    width: 18px;
+    height: 2px;
+    background-color: #333;
+}
+
+.bracket-line-final.top {
+    align-self: flex-start;
+}
+
+.bracket-line-final.bottom {
+    align-self: flex-start;
+}
+
+.bracket-curve-final {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 50px;
+    border-left: 2px solid #333;
+    border-radius: 8px 0 0 8px;
+}
+
+.year-label-final {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-width: 35px;
+    text-align: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+}
+
+.bars-container-final {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.bar-row-final {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 22px;
+}
+
+.bar-final {
+    height: 20px;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* Exact bar colors and sizes from image */
+.bar-orange-final {
+    background-color: #D97742;
+    width: 200px; /* $750 - longest bar */
+}
+
+.bar-grey-final {
+    background-color: #B8B8BC;
+    width: 195px; /* $731 - slightly shorter */
+}
+
+.bar-dark-grey-final {
+    background-color: #5A6B7D;
+    width: 120px; /* $53m - medium */
+}
+
+.bar-light-grey-final {
+    background-color: #C8C8CC;
+    width: 140px; /* $77m - slightly longer than dark grey */
+}
+
+.bar-blue-final {
+    background-color: #4A90E2;
+    width: 60px; /* 11% - short */
+}
+
+.bar-grey2-final {
+    background-color: #B8B8BC;
+    width: 70px; /* 13% - slightly longer than blue */
+}
+
+.value-final {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    min-width: 50px;
+}
+
+.value-label-grouped {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-width: 80px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
 .item3 {
     display: flex;
     flex-direction: column;
