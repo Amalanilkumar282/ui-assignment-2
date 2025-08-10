@@ -145,7 +145,6 @@ body {
     grid-row: 5; /* Now fifth row after the split */
     background-color: #f0f0f0; /* Light background for visibility */
     border: 1px solid #ccc;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -216,7 +215,6 @@ h2 {
     display: flex;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    border-radius: 8px;
     height: 100%; /* Use full available height for equal heights in rows */
     width: 100%; /* Use full available width */
     align-self: stretch; /* Stretch to match row height */
@@ -227,7 +225,6 @@ h2 {
     display: flex;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    border-radius: 8px;
     height: 100%; /* Use full height for equal heights */
     width: 100%;
     align-self: stretch; /* Stretch to match row height */
@@ -487,95 +484,127 @@ h2 {
     color: rgba(255, 68, 0, 0.9);
     width: 338px;
 }
-.horizontal-bar-chart {
-    padding: 2px; /* Minimal padding */
+.financial-chart {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
     flex: 1;
+    gap: 20px;
 }
 
-.chart-row {
+.chart-group {
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 10px; /* Reduced gap */
+    gap: 15px;
     flex: 1;
-    min-height: 0;
 }
 
-.bracket-section {
+.year-bracket-section {
     display: flex;
     align-items: center;
-    gap: 5px; /* Reduced gap */
-    width: 70px; /* Reduced width */
+    gap: 8px;
+    width: 80px;
     flex-shrink: 0;
 }
 
-.bracket {
-    width: 18px; /* Reduced width */
-    height: 70px; /* Reduced height */
+.group-bracket {
+    width: 20px;
+    height: 80px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.bracket-line {
-    width: 16px; /* Reduced width */
-    height: 2px; /* Reduced height */
+.group-bracket .bracket-line {
+    width: 18px;
+    height: 2px;
     background-color: #333;
 }
 
-.bracket-line.top {
+.group-bracket .bracket-line.top {
     align-self: flex-start;
 }
 
-.bracket-line.bottom {
+.group-bracket .bracket-line.bottom {
     align-self: flex-start;
 }
 
-.bracket-curve {
+.group-bracket .bracket-curve {
     position: absolute;
     left: 0;
     top: 0;
-    width: 16px; /* Reduced width */
-    height: 70px; /* Reduced height */
-    border-left: 2px solid #333; /* Reduced border */
-    border-radius: 10px 0 0 10px; /* Reduced radius */
+    width: 18px;
+    height: 80px;
+    border-left: 2px solid #333;
+    border-radius: 12px 0 0 12px;
 }
 
-.rotated-label {
+.year-label {
     font-size: 16px;
     font-weight: bold;
     color: #333;
-    transform: rotate(-90deg);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
     white-space: nowrap;
-    width: 30px;
+    width: 25px;
     text-align: center;
+    transform: rotate(180deg);
 }
 
-.bars-section {
+.bars-group {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Reduced gap */
-    justify-content: center;
+    gap: 8px;
 }
 
-.horizontal-bar {
-    height: 24px; /* Reduced height */
-    border-radius: 0 6px 6px 0;
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.percentage-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-width: 35px;
+    text-align: right;
+}
+
+.bar {
+    height: 28px;
     transition: width 0.3s ease;
+    position: relative;
 }
 
-.blue-bar {
-    background-color: #1e3a8a;
+.bar-orange {
+    background-color: #f97316; /* Orange */
 }
 
-.orange-bar {
-    background-color: #f97316;
+.bar-grey {
+    background-color: #9ca3af; /* Light grey */
+}
+
+.bar-dark-grey {
+    background-color: #4b5563; /* Dark grey */
+}
+
+.bar-sky-blue {
+    background-color: #60a5fa; /* Sky blue */
+}
+
+.value-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    min-width: 60px;
+    text-align: left;
 }
 
 .item3 {
@@ -641,7 +670,6 @@ h2 {
 
 .revenue-bar-container {
     background-color: white;
-    border-radius: 8px;
     padding: 5px; /* Minimal padding */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -662,7 +690,6 @@ h2 {
 .revenue-bar {
     width: 15px;
     margin: 0 2px;
-    border-radius: 2px 2px 0 0;
 }
 
 .blue-revenue {
