@@ -130,7 +130,7 @@ body {
     margin: 2rem 0 0 0; /* Reduced top margin */
     padding: 0 5px 5px 5px; /* Minimal padding */
     grid-template-columns: 1fr 1fr; /* 2 equal columns */
-    grid-template-rows: 1fr 1fr 1fr auto; /* 3 content rows + auto height for team row */
+    grid-template-rows: auto 1fr 1fr auto; /* First row auto height, middle rows equal, last row auto */
     gap: 10px; /* Reduced gap */
 }
 
@@ -205,8 +205,16 @@ h2 {
     width: 100%; /* Use full available width */
 }
 
+/* Override height for first row items to prevent bottom empty space */
+.item1, .item2 {
+    height: fit-content; /* Use content height instead of full height */
+    align-self: start; /* Align to start of grid cell */
+}
+
 .item1, .item2{
     flex-direction: column;
+    height: fit-content; /* Use content height instead of full height */
+    align-self: start; /* Align to start of grid cell */
 }
 
 .item1 > *, .item2 > *, .item3 > *, .item4 > *, .item5 > *, .item6 > * {
@@ -220,11 +228,13 @@ h2 {
 .item1 > *, .item2 > * {
     flex: 0 1 auto; /* Don't force expansion, allow natural sizing */
     justify-content: flex-start;
+    min-height: 0; /* Remove minimum height constraints */
 }
 
 /* Exception for the graph-and-text-container to maintain horizontal layout */
 .graph-and-text-container {
     flex-direction: row !important; /* Override parent column direction */
+    flex: 1 !important; /* Graph container should still expand to fill available space */
 }
 
 .item.item4 {
