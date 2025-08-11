@@ -68,7 +68,7 @@ body {
     position: absolute;
     inset: 0 auto var(--left-gap) 0;
     width: 80%;
-    background: #ffc198;
+    background: #ffd4b3;
     clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%); /* Creates angled right edge */
     z-index: 1;
     display: flex;
@@ -146,7 +146,7 @@ body {
 .single-cell-row {
     grid-column: 1 / -1;
     grid-row: 5;
-    background-color: #f0f0f0;
+    background-color: #ffd4b3;
     border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
@@ -224,6 +224,11 @@ h2 {
     height: 100%;
     width: 100%;
     align-self: stretch;
+}
+
+/* Second row items: Orange background for Financial Review and Key Achievements */
+.item3, .item4 {
+    background-color: #ffd4b3;
 }
 
 /* Future accomplishments styling: Match the base item appearance */
@@ -746,7 +751,7 @@ h2 {
     display: flex;
     gap: 15px;
     padding: 15px;
-    background-color: #f5f1eb;
+    background-color: #ffd4b3;
     height: 100%;
     flex: 1;
 }
@@ -1016,7 +1021,7 @@ h2 {
     display: flex;
     flex-direction: column;
     padding: 15px;
-    background-color: #f8f9fa;
+    background-color: #f0f0f0;
 }
 
 .y-axis-label {
